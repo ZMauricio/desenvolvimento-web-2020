@@ -1,0 +1,36 @@
+{
+  "alunos": [
+    {
+      "id": 704,
+      "nome": "Mau",
+      "curso": "Fantasia",
+      "periodo": 3,
+      "foto": "../../../assets/img/alunos/aluno-01.jpg"
+    },
+    {
+      "id": 1603484648094,
+      "nome": "Paulo",
+      "curso": "Computação",
+      "periodo": 6,
+      "foto": "../../../assets/img/alunos/aluno-01.jpg"
+    }
+  ],
+  "carros": [
+    {
+      "id": 1,
+      "nome": "Ferrari",
+      "descricao": "Carro de luxo.",
+      "preco": 3000000
+    },
+    {
+      "id": 2,
+      "nome": "Viper",
+      "descricao": "Carro esportivo.",
+      "preco": 300000
+    }
+  ],
+  "empresa": {
+    "id": 1,
+    "nome": "Auto Motors"
+  }
+}
