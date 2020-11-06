@@ -1,0 +1,102 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-10">
+
+            <form #form="ngForm" [formGroup]="alunoForm" (submit)="submit()">
+                <div class="form-group">
+                  <label for="nome">Nome</label>
+                  <input type="text" class="form-control" id="nome" formControlName="nome" [class.invalid]="alunoForm.controls['nome'].touched && !alunoForm.controls['nome'].valid" >
+
+                  <div class="alert alert-danger" 
+                  *ngIf="(alunoForm.get('nome').errors?.required || alunoForm.get('nome').errors?.minlength || 
+                  alunoForm.get('nome').errors?.maxlength) && (alunoForm.get('nome').touched || form.submitted)">
+                    Informe o nome do aluno corretamente!
+                  </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+
+                    <div class="alert alert-danger" 
+                    *ngIf="(alunoForm.get('email').errors?.required || alunoForm.get('email').errors?.email) && form.submitted">
+                      Informe o e-mail corretamente!
+                    </div>
+
+
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" class="form-control" id="telefone" formControlName="telefone">
+
+                    <div class="alert alert-danger" 
+                    *ngIf="alunoForm.get('telefone').errors?.required && form.submitted">
+                      Informe o telefone!
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="idade">Idade</label>
+                    <input type="number" class="form-control" id="idade" formControlName="idade">
+
+                    <div class="alert alert-danger" 
+                    *ngIf="(alunoForm.get('idade').errors?.required || alunoForm.get('idade').errors?.min) && form.submitted">
+                      Informe a idade!
+                    </div>
+                </div>
+
+                
+                <div class="form-group">
+                    <label for="nascimento">Data de nascimento</label>
+                    <input type="date" class="form-control" id="nascimento" formControlName="nascimento">
+
+                    <div class="alert alert-danger" 
+                    *ngIf="alunoForm.get('nascimento').errors?.required && form.submitted">
+                      Informe a data de nascimento!
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <h3>Gênero</h3>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="genero" id="masculino" value="m" formControlName="genero">
+                        <label class="form-check-label" for="masculino">Masculino</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="genero" id="feminino" value="f" formControlName="genero">
+                        <label class="form-check-label" for="feminino">Feminino</label>
+                    </div>
+
+                    <div class="alert alert-danger" 
+                    *ngIf="alunoForm.get('genero').errors?.required && form.submitted">
+                      Selecione o gênero!
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                  <div *ngFor="let obj of disciplinas; let i=index">
+
+                    <label class="form-check-label" for="{{obj.nome}}">{{obj.nome}}</label>
+                    <input type="checkbox" [value]="obj.value" [checked]="obj.checked" (change)="onSelectionChange($event,i)">
+
+                  </div>
+
+                </div>
+
+
+                <input type="submit" class="btn btn-primary mt-4" value="Salvar">
+            </form>
+
+        </div>
+    </div>
+
+
+</div>
