@@ -1,0 +1,36 @@
+
+<h2>Exemplo com cálculo de potência</h2>
+<div>
+    <label for="valor">base:</label>
+    <input type="number" [(ngModel)]="valor">
+</div>
+
+<div>
+    <label for="expoente">expoente:</label>
+    <input type="number" [(ngModel)]="expoente">
+</div>
+
+<div>
+    <strong>Resultado:</strong>
+    {{ valor | potencia: expoente }}
+</div>
+
+
+<h2>Novo aluno</h2>
+<div>
+    <label for="nome">Nome:</label>
+    <input type="text" [(ngModel)]="nome">
+</div>
+<button (click)="adicionar()">add</button>
+<button (click)="addReferencia()">addRef</button>
+
+<h2>Alunos matriculados:</h2>
+<div *ngFor="let obj of (alunos | alunosMatriculados)">
+    {{obj.nome}}
+</div>
+
+
+<h2>Alunos matriculados + pipe impuro:</h2>
+<div *ngFor="let obj of (alunos | alunosMatriculadosImpuro)">
+    {{obj.nome}}
+</div>

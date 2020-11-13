@@ -1,0 +1,45 @@
+
+
+<h1>Exibição de datas</h1>
+<strong>A data de hoje é </strong>  {{ dataAtual | date: 'dd MMMM yyyy' }}
+<br>
+<strong>A data de hoje é </strong>  {{ dataAtual | date: 'long' }}
+<br>
+<strong>A data usando dois pipes </strong>  {{ dataAtual | date: 'dd MMMM yyyy' | uppercase }}
+
+
+
+<h1>Exibição de moedas</h1>
+
+<strong>Dinheiro em dólar </strong> {{ dinheiro | currency: 'USD' }}
+<br>
+
+<strong>Dinheiro em reais </strong> {{ dinheiro | currency: 'BRL' }}
+
+
+<p>dinheiro: {{dinheiro | currency:'CAD':'code'}}</p>
+
+   
+<p>dinheiro: {{dinheiro | currency:'EUR':'symbol':'2.2-3'}}</p>
+
+
+<h1>Uppercase e Lowercase</h1>
+<p>
+    {{ textao | uppercase}}
+</p>
+
+<p>
+    {{ textozinho | lowercase}}
+</p>
+
+
+<h1>Decimal Pipe</h1>
+<div>
+    {{ valor | number: '3.1-6' }}
+</div>
+
+
+<h1>Pipe Customizado</h1>
+<div>
+    {{ numero | meuPipe: 5  }}
+</div>
