@@ -1,0 +1,27 @@
+<h2>Detalhes do Curso</h2>
+
+<form>
+    <div class="form-group">
+      <label for="id">Código</label>
+      <input type="number" class="form-control" id="id" name="id" [ngModel]="curso.id" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" [ngModel]="curso.nome" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="departamento">Departamento</label>
+        <input type="text" class="form-control" id="departamento" name="departamento" [ngModel]="curso.departamento" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="periodos">Períodos</label>
+        <input type="number" class="form-control" id="periodos" name="periodos" [ngModel]="curso.periodos" readonly>
+    </div>
+    
+
+
+    <button type="button" class="btn btn-primary" (click)="editar()">Editar</button>
+</form>
