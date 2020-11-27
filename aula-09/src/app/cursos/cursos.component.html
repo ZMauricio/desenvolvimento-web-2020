@@ -1,0 +1,53 @@
+<div class="row">
+
+    <div class="col-5">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let obj of cursos">
+                <a [routerLink]="[obj.id]"> {{obj.id}} e {{obj.nome}} </a>
+            </li>
+        </ul>
+
+
+
+        <div class="mt-2">
+
+            <nav aria-label="...">
+                <ul class="pagination">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                  </li>
+
+
+
+
+                  <li class="page-item"><a class="page-link" (click)="mudarPagina(1)">1</a></li>
+
+
+
+                  <li class="page-item active" aria-current="page">
+                    <a class="page-link" (click)="mudarPagina(2)">2 <span class="sr-only">(current)</span></a>
+                  </li>
+
+                  <li class="page-item"><a class="page-link" (click)="mudarPagina(3)">3</a></li>
+
+
+
+
+
+                  <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+
+        </div>
+    </div>
+
+
+    <div class="col-7">
+        <router-outlet></router-outlet>
+    </div>
+
+    
+
+</div>
