@@ -1,0 +1,115 @@
+
+<div class="container">
+
+    <div class="row mt-3 mb-3 justify-content-center">	
+        <div class="col-2">
+          <h1>Alunos</h1>
+        </div>
+
+        <div class="col-7"></div>
+      
+        
+        <div class="col-2">
+            <a routerLink="/aluno-novo" class="btn btn-primary btn-lg">
+              Novo
+              <i class="fas fa-plus-circle"></i>
+            </a>
+        </div>
+       
+    </div>
+
+    <!--
+    <div class="row justify-content-center">
+        <div class="col-9">
+          <div class="form-group">
+            <label for="nome"> <strong> Buscar por nome </strong> </label>
+  
+            <input type="text" class="form-control" id="nome"  [formControl]="nomeQuery" placeholder="informe o nome do aluno">
+           
+            <button type="button" class="btn btn-primary" (click)="buscar()">Buscar</button>
+            
+          </div>
+        </div>
+
+        <div class="col-3">
+          <button type="button" class="btn btn-primary" (click)="buscar()">Buscar</button>
+        </div>
+    </div>
+    -->
+
+
+
+    <div class="row justify-content-center">
+
+      <div class="col-10">
+
+        <h5>Buscar por nome</h5>
+
+        <div class="input-group mb-3">
+
+          <input type="text" [formControl]="nomeQuery" class="form-control" placeholder="Nome do cliente" aria-describedby="button-addon2">
+          
+          <div class="input-group-append">
+            <button (click)="buscar()" class="btn btn-outline-primary" type="button" id="button-addon2">Buscar</button>
+          </div>
+
+        </div>
+
+        <h6>Total de resultados: {{total}}</h6>
+      
+      </div>
+
+    </div>
+    
+    <div class="row justify-content-center mt-3">
+        
+
+        <div class="col-10">
+
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Curso</th>
+                    <th scope="col">Período</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  
+                  <tr *ngFor="let obj of resultados | async">
+               
+                    <th scope="row">{{obj.id}}</th>
+                    <td>{{obj.nome}}</td>
+                    <td>{{obj.curso}}</td>
+                    <td>{{obj.periodo}}</td>
+                    <td>
+
+                      <a class="btn btn-warning mr-1 mb-1"  routerLink="/aluno-editar/{{obj.id}}">
+                        Editar
+                        <i class="fas fa-edit"></i>
+                      </a>
+
+                      <button type="button" class="btn btn-danger" (click)="deletar(obj.id)">
+                        Excluir
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+
